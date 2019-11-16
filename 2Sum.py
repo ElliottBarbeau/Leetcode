@@ -32,3 +32,21 @@ class Solution3:
                 return [d[complement], i]
             else:
                 d[nums[i]] = i
+
+#Left and right pointer approach
+#Time complexity: O(NlogN)
+#Space complexity: O(1)
+#Trades off logN runtime for constant space
+#This algorithm only works for the questions that ask for the numbers rather than the index
+class Solution4:
+    def twoSum(self, nums, target):
+        nums.sort()
+        left, right = 0, len(nums) - 1
+        while left < right:
+            s = nums[left] + nums[right]
+            if s < target:
+                left += 1
+            elif s > target:
+                right -= 1
+            else:
+                return [nums[left], nums[right]]
