@@ -15,7 +15,7 @@ class Solution:
 
 #Recursive preorder traversal
 class Solution2:
-    def preorderTraversal(self, root):
+    def preorderTraversal(self, root):j
         if not root:
             return []
         l = []
