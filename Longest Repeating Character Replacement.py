@@ -1,20 +1,19 @@
 def length_of_longest_substring(s, k):
-    windowStart, max_length, max_repeat_letter_count = 0, 0, 0
-    frequency_map = {}
+    window_start, max_length, max_repeat = 0, 0, 0
+    char_count = {}
 
-    for windowEnd in range(len(s)):
-        right_char = s[windowEnd]
-        if right_char not in frequency_map:
-            frequency_map[right_char] = 0
-        frequency_map[right_char] += 1
-        max_repeat_letter_count = max(max_repeat_letter_count, frequency_map[right_char])
+    for window_end in range(len(s)):
+        if s[window_end] not in char_count:
+            char_count[s[window_end]] = 0
+        char_count[s[window_end]] += 1
 
-        if (windowEnd - windowStart + 1 - max_repeat_letter_count) > k:
-            left_char = s[windowStart]
-            frequency_map[left_char] -= 1
-            windowStart += 1
+        max_repeat = max(max_repeat, char_count[s[window_end]])
 
-        max_length = max(max_length, windowEnd - windowStart + 1)
+        if window_end - window_start + 1 - max_repeat > k:
+            char_count[s[window_start]] -= 1
+            window_start += 1
+
+        max_length = max(max_length, window_end - window_start + 1)
 
     return max_length
 
