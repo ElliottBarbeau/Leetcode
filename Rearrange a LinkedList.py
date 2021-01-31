@@ -15,12 +15,6 @@ class Node:
 
 
 def reorder(head):
-    count = 0
-    counter = head
-    while counter:
-        count += 1
-        counter = counter.next
-
     slow, fast = head, head
     while fast and fast.next:
         slow = slow.next
