@@ -1,5 +1,5 @@
 class Solution:
-    def restoreArray(self, adjacentPairs):
+    def restoreArray(self, adjacentPairs: List[List[int]]):
         d = {}
         res = []
         for pair in adjacentPairs:
@@ -24,6 +24,7 @@ class Solution:
             for val in d[start]:
                 if val not in res:
                     start = val
+                    print(start)
                     continue
                         
         return res
