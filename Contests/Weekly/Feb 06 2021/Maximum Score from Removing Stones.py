@@ -7,4 +7,15 @@ Given three integers a​​​​​, b,​​​​​ and c​​​​​, r
 '''
 class Solution:
     def maximumScore(self, a, b, c):
-        print()
+        arr = sorted([a, b, c])
+        count = 0
+        while arr[0] > 0:
+            if b > c:
+                arr[1], arr[2] = arr[2], arr[1]
+            arr[0] -= 1
+            arr[2] -= 1
+            count += 1
+
+        count += min(arr[1], arr[2])
+
+        return count
