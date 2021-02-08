@@ -9,14 +9,12 @@ class Solution:
             res.append(intervals[i])
             i += 1
 
-        start = newInterval[0]
-        end = newInterval[1]
         while i < len(intervals) and intervals[i][0] <= newInterval[1]:
-            start = min(intervals[i][0], start)
-            end = max(intervals[i][1], end)
+            newInterval[0] = min(intervals[i][0], newInterval[0])
+            newInterval[1] = max(intervals[i][1], newInterval[1])
             i += 1
 
-        res.append([start, end])
+        res.append([newInterval[0], newInterval[1]])
 
         while i < len(intervals) and intervals[i][0] > newInterval[1]:
             res.append(intervals[i])
