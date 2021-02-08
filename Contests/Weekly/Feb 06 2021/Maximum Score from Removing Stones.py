@@ -10,7 +10,7 @@ class Solution:
         arr = sorted([a, b, c])
         count = 0
         while arr[0] > 0:
-            if b > c:
+            if arr[1] > arr[2]:
                 arr[1], arr[2] = arr[2], arr[1]
             arr[0] -= 1
             arr[2] -= 1
@@ -19,3 +19,5 @@ class Solution:
         count += min(arr[1], arr[2])
 
         return count
+
+print(Solution().maximumScore(4, 4, 6))
