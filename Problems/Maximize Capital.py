@@ -1,5 +1,4 @@
-from heapq import *
-
+from heapq import heappush, heappop
 
 def find_maximum_capital(capital, profits, numberOfProjects, initialCapital):
     minCapitalHeap = []
