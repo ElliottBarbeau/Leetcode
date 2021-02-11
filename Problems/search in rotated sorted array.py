@@ -17,4 +17,4 @@ class Solution:
                     end = mid - 1
         return -1
             
-print(Solution().search([1, 3], 3))
+print(Solution().search([3, 1], 1))
