@@ -6,6 +6,8 @@
 #         self.right = right
 class Solution:
     def insertIntoBST(self, root, val):
+        if not root:
+            return TreeNode(val)
         self.helper(root, val)
         return root
 
