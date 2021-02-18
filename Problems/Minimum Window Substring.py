@@ -37,4 +37,4 @@ class Solution:
             
 
 
-print(Solution().minWindow('ab', 'b'))
+print(Solution().minWindow('aa', 'aa'))
