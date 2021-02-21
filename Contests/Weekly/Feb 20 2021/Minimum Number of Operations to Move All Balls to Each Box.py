@@ -18,8 +18,6 @@ class Solution:
             if left:
                 left_ones += 1
                 left = False
-            
-            print(right_ones, left_ones)
             res.append(res[i-1] - right_ones + left_ones)
 
             if boxes[i] == '1':
