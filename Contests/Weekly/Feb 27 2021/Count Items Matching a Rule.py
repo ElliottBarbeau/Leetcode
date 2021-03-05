@@ -1,5 +1,5 @@
 class Solution:
-    def countMatches(self, items: List[List[str]], ruleKey: str, ruleValue: str) -> int:
+    def countMatches(self, items: list[list[str]], ruleKey: str, ruleValue: str) -> int:
         count = 0
         for item in items:
             if ruleKey == "type":
