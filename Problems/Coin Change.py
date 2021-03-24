@@ -1,15 +1,32 @@
 class Solution:
-    def coinChange(self, coins: list[int], amount: int) -> int:
-        dp = [float('inf')] * (amount + 1)
-        dp[0] = 0
+    def getMaximumConsecutive(self, coins: list[int]) -> int:
+        passed, failed = 1, 40000
+        testing = 1
+        while passed < failed:
+            print(passed, failed)
+            if self.subsetSum(testing, coins):
+                passed = testing
+                testing = (passed + failed) // 2
+            else:
+                failed = testing
+                testing = (passed + failed) // 2
+    
+    
+    def subsetSum(self, i, coins):
+        subset = [[False for j in range(i + 1)] for a in range(len(coins) + 1)]
+        for k in range(len(coins) + 1):
+            subset[k][0] = True
 
-        for i in range(1, amount + 1):
-            for coin in coins:
-                if i - coin >= 0:
-                    dp[i] = min(dp[i], 1 + dp[i - coin])
+        for l in range(1, i + 1):
+            subset[0][l] = False
 
-        return dp[amount] if dp[amount] != float('inf') else -1
+        for n in range(1, len(coins) + 1):
+            for m in range(1, i + 1):
+                if m < coins[n - 1]:
+                    subset[n][m] = subset[n - 1][m]
+                if m >= coins[n - 1]:
+                    subset[n][m] = subset[n - 1][m-coins[n - 1]] or subset[n - 1][m]
 
-coins = [1,2,5]
-amount = 11
-print(Solution().coinChange(coins, amount))
+        return subset[len(coins)][i]
+
+print(Solution().getMaximumConsecutive([1,3]))
