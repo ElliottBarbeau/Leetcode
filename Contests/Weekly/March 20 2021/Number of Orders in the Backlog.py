@@ -1,4 +1,4 @@
-from heapq import *
+from heapq import heappop, heappush
 class Solution:
     def getNumberOfBacklogOrders(self, orders: list[list[int]]) -> int:
         buyheap = []
@@ -33,9 +33,11 @@ class Solution:
         while sellheap:
             x, curr = heappop(sellheap)
             total += curr[1]
+            print(x)
             
         while buyheap:
             x, curr = heappop(buyheap)
             total += curr[1]
+            print(x)
             
         return total % (10**9 + 7)
