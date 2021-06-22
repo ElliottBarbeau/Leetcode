@@ -1,5 +1,5 @@
 class Solution:
-    def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
+    def countSubIslands(self, grid1: list[list[int]], grid2: list[list[int]]) -> int:
         seen1, seen2 = set(), set()
         islands1, islands2 = [], []
         count = 0
