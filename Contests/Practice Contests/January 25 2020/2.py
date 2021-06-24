@@ -1,5 +1,5 @@
 class Solution:
-    def filterRestaurants(self, restaurants: list[list[int]], veganFriendly: int, maxPrice: int, maxDistance: int) -> List[int]:
+    def filterRestaurants(self, restaurants: list[list[int]], veganFriendly: int, maxPrice: int, maxDistance: int) -> list[int]:
         i = 0
         while i < len(restaurants):
             if restaurants[i][3] > maxPrice or restaurants[i][4] > maxDistance or (veganFriendly and not restaurants[i][2]):
