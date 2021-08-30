@@ -1,0 +1,1 @@
+print("typeytpeytpeypteypetypeyptypetypeytpeytpeyptypetyeptypetthisowotjityeptpyetpypeytpeytpeptypeypteyptypetype".count("type"))
